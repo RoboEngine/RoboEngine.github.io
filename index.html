@@ -170,17 +170,16 @@
                     <h2 class="title is-2">Abstract</h2>
                     <div class="content has-text-justified">
                         <p>
-                            Recent success in legged robot locomotion is attributed to the integration of reinforcement learning and physical simulators. 
-                            However, these policies often encounter challenges when deployed in real-world environments due to sim-to-real gaps, as simulators 
-                            typically fail to replicate visual realism and complex real-world geometry. Moreover, the lack of realistic visual rendering 
-                            limits the ability of these policies to support high-level tasks requiring RGB-based perception like ego-centric navigation.
-                            This paper presents a <b>Real-to-Sim-to-Real</b> system that generates photorealistic and physically interactive "digital twin"
-                            simulation environments for visual navigation and locomotion learning. Our approach leverages 3DGS-based scene reconstruction 
-                            from multi-view images and integrates these environments into simulations that support ego-centric visual perception and mesh-based 
-                            physical interactions. To demonstrate its effectiveness, we train a reinforcement learning policy within the simulator to perform a 
-                            visual goal-tracking task. Extensive experiments show that our system achieves RGB-only sim-to-real policy transfer. Additionally, 
-                            our system facilitates the rapid adaptation of robot policies to new environments, highlighting its potential for applications in 
-                            households and factories.                        
+                            Visual augmentation has become a crucial technique for enhancing the visual robustness of imitation learning. 
+                            However, existing methods are often limited by prerequisites such as camera calibration or the need for 
+                            controlled environments (e.g., green screen setups). In this work, we introduce RoboEngine, 
+                            the first plug-and-play visual robot data augmentation toolkit. For the first time, users can effortlessly 
+                            generate physics- and task-aware robot scenes with just a few lines of code. To achieve this, 
+                            we present a novel robot scene segmentation dataset, a generalizable high-quality robot segmentation model, 
+                            and a fine-tuned background generation model, which together form the core components of the out-of-the-box toolkit. 
+                            Using RoboEngine, we demonstrate the ability to generalize robot manipulation tasks across six entirely new scenes, 
+                            based solely on demonstrations collected from a single scene, achieving a more than 200% performance improvement 
+                            compared to the no-augmentation baseline. All datasets, model weights, and the toolkit will be publicly released.                   
                         </p>
                     </div>
                 </div>
