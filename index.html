@@ -231,19 +231,24 @@
                 </div>
             </div>
 
-            <h2 class="title is-4" style="text-align: center;">Agent-object Randomization and Scene Composition</h2>
+            <h2 class="title is-2" style="text-align: center;">Augmentation Model</h2>
             <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
                     <div class="content has-text-justified">
                         <p>
-                            At the beginning of each episode, we randomly sample the mesh positions for the robot and three cones in the Isaac Sim environment (upper row). We synchronously merge the agent and object Gaussians into the environment and compose for joint rendering (lower row). Both mesh and Gaussian rendering results shown here are in the Bird's-Eye View (BEV) with the same camera pose.
+                            Given a robot scene image, we first generate the robot mask and task-related object masks using Robo-SAM and 
+                            EVF-SAM (conditioned on the object name in the task instruction). We then use a generative model to create a 
+                            physics- and task-aware background based on the previously generated masks. For this, we use 
+                            BackGround-Diffusion, which generates a foreground-aware background with physical constraints 
+                            given a foreground mask and scene description. We fine-tune this model on our RoboSeg dataset to 
+                            eliminate unreasonable generations in some cases.
                         </p>
                         </div>
                 </div>
             </div>
             <div class="columns is-centered">
                 <div class="column is-four-fifths is-centered has-text-centered">
-                    <img src="./static/images/random_example.png" alt="random_example" style="width: 75%;" />
+                    <img src="./static/images/aug_example.png" alt="random_example" style="width: 75%;" />
                 </div>
             </div>
         </div>
