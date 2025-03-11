@@ -191,15 +191,15 @@
 
     <section class="section">
         <div class="container">
-            <h2 class="title is-2" style="text-align: center;">Method</h2>
-            <h2 class="title is-4" style="text-align: center;">Framework Overview of VR-Robo System. </h2>
+            <h2 class="title is-2" style="text-align: center;">RoboSeg Dataset</h2>
             <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
                     <div class="content has-text-justified">
                         <p>
-                            We first reconstruct the 3D Gaussians and meshes of the environment and objects from the captured images. 
-                            These reconstructions are then randomly composed. After that, we train the policy network in simulation. 
-                            Finally, the policy is deployed to the real robot without requiring additional fine-tuning.
+                            We propose RoboSeg, a novel dataset with high-quality robot scene segmentation annotations. 
+                            RoboSeg contains 3,800 images randomly selected from over 35 robot datasets, 
+                            covering a broad range of robot types (e.g., Franka, WindowX, HelloRobot, UR5, Sawyer, Xarm, etc.), 
+                            camera views, and background environments.
                         </p>
                     </div>
                 </div>
@@ -207,19 +207,17 @@
             <div class="columns is-centered">
                 <div class="column is-four-fifths is-centered has-text-centered">
                     <figure>
-                        <img src="./static/images/framework.jpg" alt="framework" style="width: 110%;">
+                        <img src="./static/images/roboseg.jpg" alt="framework" style="width: 110%;">
                     </figure>
                 </div>
             </div>
-            <h2 class="title is-4" style="text-align: center;">RL Policy Training in the Reconstructed Simulation Environment</h2>
+            <h2 class="title is-2" style="text-align: center;">Segmentation Model</h2>
             <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
                     <div class="content has-text-justified">
                         <p>
-                            The agent leverages the ego-view GS photorealistic rendering as visual observations and interacts with 
-                            the mesh extracted from GS in the Issac Sim environment. The agent receives the RGB image feature from 
-                            ViT encoder, proprioception from simulator sensors, and a task-specific RGB command as input, using an 
-                            asymmetric actor-critic LSTM structure to output the velocity command for low-level policy control.
+                            Based on RoboSeg, we fine-tune the state-of-the-art (SoTA) language-conditioned segmentation model 
+                            EVF-SAM to create a new robot segmentation model, Robo-SAM, which achieves high-quality open-world robot segmentation.
                         </p>
                     </div>
                 </div>
@@ -228,7 +226,7 @@
             <div class="columns is-centered">
                 <div class="column is-four-fifths is-centered has-text-centered">
                     <figure>
-                        <img src="./static/images/rl.png" alt="rl" style="width: 110%;">
+                        <img src="./static/images/segmentation.png" alt="rl" style="width: 110%;">
                     </figure>
                 </div>
             </div>
